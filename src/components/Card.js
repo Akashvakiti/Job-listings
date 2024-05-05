@@ -39,7 +39,7 @@ export const Card=({name,role,location,jd,salary,experiance,logo})=>{
             {/* view more and view less links */}
             <a className='primary' onClick={()=>settoggle(!toggle)}>{!toggle?"View More":"View Less"}</a>
 
-            <h6 className='experiance m-2'>Minimum Experiance : {experiance} years</h6>
+            <h6 className='experiance m-2'>Minimum Experiance : {experiance}+ years</h6>
             {/* Apply button */}
             <Button className=" col-12 " style={{color:'black',backgroundColor:'lightseagreen',border:'black'}}  ><FcFlashOn /><b>Easy Apply</b></Button>
             <div>

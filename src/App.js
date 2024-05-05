@@ -33,19 +33,19 @@ function App() {
       setIsLoading(false);
     };
     fetchData();
-  }, []);
+  }, [c]);
 
   //handleScroll is a function that checks if the user has scrolled to the bottom of the page and if data fetching is not already in progress
   //Also used for the purpose of to achieve infinite scrolling
-  // const handleScroll = () => {
-  //   if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || isLoading) {
-  //     return;
-  //   }
-  // };
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);// Add scroll event listener to the window
-  //   return () => window.removeEventListener('scroll', handleScroll);// Remove scroll event listener when the component unmounts
-  //  }, [isLoading]);// Execute the effect whenever the value of isLoading state variable changes
+  const handleScroll = () => {
+    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || isLoading) {
+      return;
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);// Add scroll event listener to the window
+    return () => window.removeEventListener('scroll', handleScroll);// Remove scroll event listener when the component unmounts
+   }, [isLoading]);// Execute the effect whenever the value of isLoading state variable changes
 
 
   console.log(joblistings); 
