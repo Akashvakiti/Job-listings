@@ -33,19 +33,19 @@ function App() {
       setIsLoading(false);
     };
     fetchData();
-  }, [c]);
+  }, []);
 
   //handleScroll is a function that checks if the user has scrolled to the bottom of the page and if data fetching is not already in progress
   //Also used for the purpose of to achieve infinite scrolling
-  const handleScroll = () => {
-    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || isLoading) {
-      return;
-    }
-  };
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);// Add scroll event listener to the window
-    return () => window.removeEventListener('scroll', handleScroll);// Remove scroll event listener when the component unmounts
-   }, [isLoading]);// Execute the effect whenever the value of isLoading state variable changes
+  // const handleScroll = () => {
+  //   if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || isLoading) {
+  //     return;
+  //   }
+  // };
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScroll);// Add scroll event listener to the window
+  //   return () => window.removeEventListener('scroll', handleScroll);// Remove scroll event listener when the component unmounts
+  //  }, [isLoading]);// Execute the effect whenever the value of isLoading state variable changes
 
 
   console.log(joblistings); 
@@ -94,37 +94,37 @@ function App() {
      {/* input fileds takes input from user for seraching the job */}
      <div>
        <input className='m-3' 
-       style={{ backgroundColor: 'skyblue', padding: '5px', borderRadius: '7px', border: '1px solid #ccc' }} 
+       style={{  padding: '5px', borderRadius: '7px', border: '1px solid #ccc' }} 
        type="text" 
        placeholder='Search by Company' 
        onChange={(event)=>setSearchCompany(event.target.value)}/>
 
        <input className='m-3' 
-       style={{ backgroundColor: 'skyblue', padding: '5px', borderRadius: '7px', border: '1px solid #ccc' }} 
+       style={{ padding: '5px', borderRadius: '7px', border: '1px solid #ccc' }} 
        type="text" 
        placeholder='Search by Role' 
        onChange={(event)=>setSearchRole(event.target.value)}/>
 
        <input className='m-3' 
-       style={{ backgroundColor: 'skyblue', padding: '5px', borderRadius: '7px', border: '1px solid #ccc' }} 
+       style={{ padding: '5px', borderRadius: '7px', border: '1px solid #ccc' }} 
        type="text" 
        placeholder='Search by Location' 
        onChange={(event)=>setSearchLocation(event.target.value)}/>
 
        <input className='m-3' 
-       style={{ backgroundColor: 'skyblue', padding: '5px', borderRadius: '7px', border: '1px solid #ccc' }} 
+       style={{ padding: '5px', borderRadius: '7px', border: '1px solid #ccc' }} 
        type="text" 
        placeholder='Search by Remote' 
        onChange={(event)=>setSearchRemote(event.target.value)}/>
 
        <input className='m-3' 
-       style={{ backgroundColor: 'skyblue', padding: '5px', borderRadius: '7px', border: '1px solid #ccc' }} 
+       style={{ padding: '5px', borderRadius: '7px', border: '1px solid #ccc' }} 
        type="text" 
        placeholder='Search by Experiance' 
        onChange={(event)=>setSearchExperiance(+event.target.value)}/>
 
        <input className='m-3' 
-       style={{ backgroundColor: 'skyblue', padding: '5px', borderRadius: '7px', border: '1px solid #ccc' }} 
+       style={{ padding: '5px', borderRadius: '7px', border: '1px solid #ccc' }} 
        type="text" 
        placeholder='Search by Pay ($)' 
        onChange={(event)=>setSearchPay(+event.target.value)}/>
@@ -133,7 +133,7 @@ function App() {
      <div className="card">
       <div className='row'>
         {filteredCompanys.map((job)=>{
-          return <Card key={job.jdUid} role={job.jobRole} name={job.companyName}  location={job.location} jd={job.jobDetailsFromCompany} salary={job.maxJdSalary} experiance={job.minExp}/>
+          return <Card role={job.jobRole} name={job.companyName}  location={job.location} jd={job.jobDetailsFromCompany} salary={job.maxJdSalary} experiance={job.minExp} logo={job.logoUrl}/>
         })}
         {isLoading && <p>Loading...</p>}
       </div>
